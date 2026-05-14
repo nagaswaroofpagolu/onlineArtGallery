@@ -83,8 +83,8 @@ spring.datasource.password=your_mysql_password
 jwt.secret=your_256_bit_secret_key_here_minimum_32_characters
 
 # Razorpay Configuration (use test credentials for development)
-razorpay.key.id=rzp_test_RcKaD36uYcqBWS
-razorpay.key.secret=UuLphOT4TVE53yBY5OjR9PGf
+razorpay.key.id=your_deatils
+razorpay.key.secret=your_deatils
 ```
 
 #### Build and Run Backend
