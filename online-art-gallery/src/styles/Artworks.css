@@ -1,0 +1,447 @@
+/* ==========================================
+   Artworks Page – Premium Black & Gold Theme
+========================================== */
+
+body {
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  font-family: "Poppins", sans-serif;
+  color: #e8e6e3;
+}
+
+.artworks-page {
+  min-height: 100vh;
+  padding: 60px 0;
+}
+
+/* Title */
+.artworks-page h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffd700;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+  margin-bottom: 50px;
+  animation: fadeInDown 0.8s ease;
+}
+
+/* Grid Layout */
+.artworks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0 2rem;
+}
+
+/* Artwork Card */
+.artwork-card {
+  background: #1a1a1a;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+  border-top: 3px solid #ffd700;
+  transition: all 0.35s ease;
+  text-align: center;
+  position: relative;
+}
+
+.artwork-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.25);
+}
+
+/* Image + Overlay */
+.artwork-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.artwork-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.artwork-card:hover img {
+  transform: scale(1.07);
+  filter: brightness(0.8);
+}
+
+.artwork-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 13, 13, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  gap: 10px;
+  transition: opacity 0.4s ease;
+}
+
+.artwork-card:hover .artwork-overlay {
+  opacity: 1;
+}
+
+/* Buttons */
+.btn-view,
+.btn-buy {
+  padding: 8px 18px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-view {
+  background: transparent;
+  border: 1px solid #ffd700;
+  color: #ffd700;
+}
+
+.btn-view:hover {
+  background: #ffd700;
+  color: #000;
+}
+
+.btn-buy {
+  background: linear-gradient(135deg, #ffd700, #cdaa00);
+  color: #000;
+}
+
+.btn-buy:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Card Content */
+.artwork-card-content {
+  padding: 20px 15px;
+}
+
+.artwork-card-content h5 {
+  color: #ffd700;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.artwork-card-content p {
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.artwork-price {
+  color: #00ffae;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+/* ===========================
+   Modal Popup (Dark & Gold)
+=========================== */
+.art-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.art-modal {
+  background: #1a1a1a;
+  border-radius: 18px;
+  max-width: 800px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.25);
+  animation: scaleUp 0.25s ease;
+  position: relative;
+  border-top: 6px solid #ffd700; /* ✨ Gold effect on top */
+}
+
+.art-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.art-modal-details {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.art-modal-details h3 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.art-modal-details .artist {
+  font-style: italic;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.art-modal-details .description {
+  color: #ddd;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.art-modal-details .price {
+  font-weight: 600;
+  color: #00ffae;
+  margin-top: 10px;
+}
+
+.gold-btn {
+  background: linear-gradient(135deg, #ffd700, #cdaa00);
+  color: #000;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.gold-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.art-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #ffd700;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.art-modal-close:hover {
+  transform: rotate(90deg);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .artworks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .art-modal {
+    flex-direction: column;
+  }
+  .art-modal-image img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .artworks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .artworks-page h2 {
+    font-size: 22px;
+  }
+
+  .artwork-card img {
+    height: 200px;
+  }
+}
+/* ==========================================
+   ✨ Gold Shimmer Effect – Popup Border
+========================================== */
+@keyframes goldShimmer {
+  0% {
+    border-image: linear-gradient(135deg, #ffd700, #cdaa00, #ffd700);
+    border-image-slice: 1;
+  }
+  50% {
+    border-image: linear-gradient(135deg, #fff4b0, #ffd700, #cdaa00);
+    border-image-slice: 1;
+  }
+  100% {
+    border-image: linear-gradient(135deg, #ffd700, #cdaa00, #ffd700);
+    border-image-slice: 1;
+  }
+}
+
+.art-popup {
+  animation: slideUpModal 0.4s ease forwards, goldShimmer 3s infinite linear;
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(135deg, #ffd700, #cdaa00, #ffd700);
+  border-image-slice: 1;
+}
+
+/* ==========================================
+   🌟 Fade-Glow Entrance – Artwork Cards
+========================================== */
+@keyframes fadeGlow {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+  }
+}
+
+.artwork-card {
+  animation: fadeGlow 0.8s ease both;
+}
+
+/* Slight staggered delay for realism */
+.artworks-grid .artwork-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.artworks-grid .artwork-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.artworks-grid .artwork-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.artworks-grid .artwork-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+/* ==========================================
+   🌟 Elegant Golden Aura Hover Effect
+========================================== */
+.artwork-card {
+  position: relative;
+  transition: all 0.35s ease;
+  z-index: 1;
+}
+
+.artwork-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 215, 0, 0.25) 0%,
+    rgba(255, 215, 0, 0.1) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.artwork-card:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
+  filter: blur(8px);
+}
+
+.artwork-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.35);
+}
+/* ==========================================
+   ✨ Golden Aura for Popup Modal
+========================================== */
+.artwork-popup {
+  position: relative;
+  background: #111; /* keep dark background */
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.artwork-popup::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 215, 0, 0.25) 0%,
+    rgba(255, 215, 0, 0.1) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.artwork-popup.show::before {
+  opacity: 1;
+  transform: scale(1.05);
+  filter: blur(8px);
+}
+
+/* Optional: add soft golden glow around close button */
+.popup-close {
+  color: gold;
+  transition: all 0.3s ease;
+}
+.popup-close:hover {
+  color: #fff;
+  text-shadow: 0 0 10px gold, 0 0 20px rgba(255, 215, 0, 0.6);
+}

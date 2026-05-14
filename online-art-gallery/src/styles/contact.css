@@ -1,0 +1,324 @@
+/* ================================
+   CONTACT PAGE CONTAINER
+================================ */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 85vh;
+  width: 100%;
+  background: radial-gradient(circle at top left, #1a1a1a, #0d0d0d 85%);
+  font-family: "Poppins", sans-serif;
+  color: #ffd700;
+  padding: 1rem;
+  overflow-x: hidden;
+}
+
+.contact-wrapper {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 650px;
+}
+
+/* ================================
+   CONTACT CARD
+================================ */
+.contact-card {
+  background: #121212;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 25px rgba(255, 215, 0, 0.15);
+  border-top: 3px solid #ffd700;
+  width: 100%;
+  animation: fadeIn 0.6s ease;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.25);
+}
+
+/* ================================
+   TITLE & NOTIFICATION
+================================ */
+.contact-title {
+  color: #ffd700;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.notification {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+  text-align: center;
+}
+
+.notification.success {
+  background: rgba(0, 255, 0, 0.1);
+  color: #00ff00;
+  border: 1px solid rgba(0, 255, 0, 0.2);
+}
+
+.notification.error {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff4444;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+/* ================================
+   FORM
+================================ */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ffd700;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.required {
+  color: #ff4444;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 2px solid #333;
+  background: #1a1a1a;
+  color: #ffd700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  resize: vertical;
+}
+
+.contact-form textarea {
+  min-height: 150px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+}
+
+.contact-form input.error,
+.contact-form textarea.error {
+  border-color: #ff4444;
+}
+
+.error-message {
+  color: #ff4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* ================================
+   SUBMIT BUTTON
+================================ */
+.submit-btn {
+  background: linear-gradient(135deg, #ffd700, #ffb700);
+  color: #000;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+  background: linear-gradient(135deg, #ffb700, #ffd700);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ================================
+   CONTACT INFO
+================================ */
+.contact-info {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid #333;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 215, 0, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background: rgba(255, 215, 0, 0.1);
+  transform: translateX(5px);
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  color: #ffd700;
+}
+
+.info-item p {
+  margin: 0;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+/* ================================
+   ANIMATIONS
+================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 1rem;
+  }
+
+  .contact-card {
+    padding: 1.5rem;
+  }
+
+  .contact-title {
+    font-size: 1.75rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.875rem 1rem;
+  }
+
+  .submit-btn {
+    padding: 0.875rem 1.5rem;
+  }
+
+  .info-item {
+    padding: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 1.5rem;
+  }
+
+  .form-label {
+    font-size: 0.875rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.875rem;
+  }
+
+  .info-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ffd700;
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
+  background: #1b1b1b;
+}
+
+/* ================================
+   BUTTON
+================================ */
+.contact-form button {
+  background: linear-gradient(135deg, #ffd700, #cdaa00);
+  border: none;
+  color: #0d0d0d;
+  font-weight: 600;
+  padding: 0.9rem;
+  border-radius: 50px;
+  width: 100%;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 18px rgba(255, 215, 0, 0.2);
+}
+
+.contact-form button:hover {
+  background: linear-gradient(135deg, #ffdf33, #e0b000);
+  transform: scale(1.03);
+  box-shadow: 0 6px 25px rgba(255, 215, 0, 0.4);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .contact-card {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  .contact-title {
+    font-size: 1.5rem;
+  }
+}

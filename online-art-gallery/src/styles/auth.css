@@ -1,0 +1,137 @@
+/* ==========================================
+   Auth Page – Black & Gold Theme (Unified Inputs)
+========================================== */
+
+/* Page layout */
+.auth-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+/* Auth Card */
+.auth-card {
+  background: #1a1a1a;
+  width: 100%;
+  max-width: 360px;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+  border-top: 3px solid #ffd700;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Title */
+.auth-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 22px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Input group */
+.input-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.input-group label {
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* ✅ Unified curved inputs for all fields */
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group select {
+  width: 100%;
+  padding: 11px 40px 11px 11px;
+  border-radius: 25px; /* more curve */
+  border: 1px solid #333;
+  background: #0d0d0d;
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #ffd700;
+  outline: none;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.3);
+}
+
+/* ✅ Password Eye Icon Inside Input */
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 38px;
+  cursor: pointer;
+  color: #ffd700;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.password-toggle:hover {
+  color: #cdaa00;
+}
+
+/* ✅ Dropdown (Select) */
+.input-group select {
+  appearance: none;
+  background: #0d0d0d;
+  color: red;
+  cursor: pointer;
+}
+
+/* Button */
+.gold-btn {
+  width: 100%;
+  padding: 11px;
+  background: linear-gradient(135deg, #ffd700, #cdaa00);
+  color: #0d0d0d;
+  border: none;
+  border-radius: 25px; /* match input curve */
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+  margin-top: 8px;
+}
+
+.gold-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+/* Footer text */
+.auth-card p {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

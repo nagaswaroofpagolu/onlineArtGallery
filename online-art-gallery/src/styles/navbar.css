@@ -1,0 +1,192 @@
+/* ==========================================
+   Glassy Maroon & Gold Navbar – Refined Thin Look
+========================================== */
+
+.navbar {
+  background: linear-gradient(to right, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.95));
+  /* slightly slimmer navbar */
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid rgba(255, 215, 0, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  animation: fadeSlideDown 0.5s ease forwards;
+}
+
+/* Subtle floating animation on scroll (optional) */
+.navbar.scrolled {
+  background: rgba(128, 0, 32, 0.85);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.1);
+  backdrop-filter: blur(22px);
+}
+
+/* Brand */
+.navbar-brand {
+  color: #faf7f0 !important;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.25);
+  transition: all 0.35s ease;
+}
+
+.navbar-brand:hover {
+  color: #ffd700 !important;
+  transform: scale(1.06);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+/* Nav links */
+.nav-link {
+  color: #faf7f0 !important;
+  margin: 0 10px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+/* Gold underline hover effect */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background: #ffd700;
+  border-radius: 2px;
+  transition: all 0.35s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 70%;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffd700 !important;
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+/* Navbar toggler */
+.navbar-toggler {
+  border: none;
+  outline: none !important;
+  box-shadow: none !important;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 8px;
+  padding: 6px 10px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  background: rgba(255, 215, 0, 0.25);
+  transform: scale(1.05);
+}
+
+/* Hamburger icon – clean white lines */
+.navbar-toggler-icon {
+  width: 22px;
+  height: 2px;
+  background-color: #faf7f0;
+  display: block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 2px;
+  background-color: #faf7f0;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: -6px;
+}
+
+.navbar-toggler-icon::after {
+  top: 6px;
+}
+
+/* Animate into X when expanded */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+  background-color: #ffd700;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+  background-color: #ffd700;
+}
+
+/* Smooth fade + slide down on load */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .nav-link {
+    margin: 6px 0;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .nav-link::after {
+    bottom: -2px;
+  }
+}
+
+/* Smooth collapse animation for Bootstrap's collapse (.show toggled by Bootstrap JS) */
+/* We transition max-height and opacity to create a smooth open/close effect. */
+@media (max-width: 992px) {
+  .navbar-collapse.collapse {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 360ms cubic-bezier(.2,.8,.2,1), opacity 260ms ease-in-out;
+  }
+
+  .navbar-collapse.collapse.show {
+    max-height: 480px; /* large enough to reveal menu items */
+    opacity: 1;
+  }
+
+  /* Tighter spacing for navbar items on mobile */
+  .navbar-nav .nav-link {
+    padding: 10px 12px;
+    margin: 4px 0;
+  }
+}

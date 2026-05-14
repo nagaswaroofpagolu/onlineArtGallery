@@ -1,0 +1,99 @@
+/* ==========================================
+   About Page – Black & Gold Theme (Elegant Version)
+========================================== */
+
+.about-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px; /* balanced gap below navbar */
+  font-family: "Poppins", sans-serif;
+}
+
+/* Card Container */
+.about-container {
+  background: #141414;
+  max-width: 750px;
+  width: 90%;
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.12);
+  border-top: 3px solid #ffd700;
+  text-align: center;
+  animation: fadeIn 0.8s ease forwards;
+  transition: all 0.4s ease;
+}
+
+.about-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.25);
+}
+
+/* Title */
+.about-container h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffd700;
+  margin-bottom: 25px;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  letter-spacing: 1px;
+}
+
+/* Paragraph Text */
+.about-container p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #d3d3d3;
+  text-align: justify;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+.about-container strong {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+/* Subtle Glow Border */
+.about-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), transparent);
+  z-index: -1;
+  filter: blur(30px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-page {
+    padding-top: 60px;
+  }
+
+  .about-container {
+    width: 90%;
+    padding: 30px 22px;
+  }
+
+  .about-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-container p {
+    font-size: 0.95rem;
+  }
+}

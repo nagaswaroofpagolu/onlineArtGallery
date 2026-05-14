@@ -1,0 +1,210 @@
+/* ================================
+   ARTWORK MODAL STYLES
+================================ */
+
+.artwork-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.artwork-modal-overlay.show {
+  opacity: 1;
+}
+
+.artwork-modal {
+  background: linear-gradient(135deg, #1a1a1a, #262626);
+  border-radius: 20px;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    0 0 80px rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.artwork-modal.show {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.artwork-modal-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .artwork-modal-content {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.artwork-modal-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.artwork-modal-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  transition: transform 0.5s ease;
+}
+
+.artwork-modal-image:hover img {
+  transform: scale(1.03);
+}
+
+.artwork-modal-details {
+  color: #fff;
+  padding: 1rem;
+}
+
+.artwork-modal-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffd700;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.artwork-modal-artist {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.artwork-modal-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffd700;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.artwork-modal-description {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.artwork-modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1060;
+}
+
+.artwork-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.artwork-modal-close span {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Scrollbar Styling */
+.artwork-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.artwork-modal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.artwork-modal::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.3);
+  border-radius: 4px;
+}
+
+.artwork-modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.5);
+}
+
+/* Additional Info Section */
+.artwork-modal-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.artwork-modal-info-item {
+  padding: 0.75rem;
+}
+
+.artwork-modal-info-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.25rem;
+}
+
+.artwork-modal-info-value {
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Animation Keyframes */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

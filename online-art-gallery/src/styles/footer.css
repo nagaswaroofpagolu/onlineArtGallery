@@ -1,0 +1,21 @@
+.footer {
+  background: linear-gradient(90deg, #000000, #1a1a1a);
+  color: #ffd700;
+  text-align: center;
+  padding: 1.5rem 0;
+  border-top: 2px solid rgba(255, 215, 0, 0.15);
+  box-shadow: 0 -3px 20px rgba(255, 215, 0, 0.08);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.footer a {
+  color: #ffd700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer a:hover {
+  color: #fff5cc;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
