@@ -9,8 +9,8 @@
 ## Current Test Credentials
 
 ```properties
-razorpay.key_id=rzp_test_RcKaD36uYcqBWS
-razorpay.key_secret=UuLphOT4TVE53yBY5OjR9PGf
+razorpay.key_id=your_details
+razorpay.key_secret=your_details
 ```
 
 These are test mode credentials. Payments will be simulated.
@@ -125,7 +125,7 @@ razorpay.key_secret=${RAZORPAY_KEY_SECRET:UuLphOT4TVE53yBY5OjR9PGf}
 
 This means:
 1. Try to read from `RAZORPAY_KEY_ID` environment variable
-2. If not found, use the test value `rzp_test_RcKaD36uYcqBWS`
+2. If not found, use the test value `rzp_test_`
 
 ## 🔄 Key Rotation
 
