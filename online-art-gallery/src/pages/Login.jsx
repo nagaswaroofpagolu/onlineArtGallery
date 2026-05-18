@@ -13,9 +13,9 @@ export default function Login() {
     e.preventDefault();
     try {
       await login({ email, password });
-      alert('Login successful!');
+      alert("Login successful!");
     } catch (err) {
-      alert(err.message || 'Invalid credentials');
+      alert(err.message || "Invalid credentials");
     }
   };
 
@@ -45,16 +45,19 @@ export default function Login() {
                 required
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <span
+              <button
                 className="password-toggle"
+                type="button"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? "👁️‍🗨️" : "👁️"}
-              </span>
+                {showPassword ? "Hide" : "Show"}
+              </button>
             </div>
           </div>
 
-          <button type="submit" className="gold-btn">Login</button>
+          <button type="submit" className="gold-btn">
+            Login
+          </button>
         </form>
 
         <p style={{ textAlign: "center", marginTop: "1rem" }}>

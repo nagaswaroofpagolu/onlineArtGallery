@@ -1,137 +1,141 @@
-/* ==========================================
-   Auth Page – Black & Gold Theme (Unified Inputs)
-========================================== */
-
-/* Page layout */
-.auth-container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+.auth-container,
+.form-page {
+  align-items: flex-start;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-top: 30px;
-  box-sizing: border-box;
+  min-height: 100vh;
+  padding: clamp(2rem, 6vw, 4rem) 1rem;
 }
 
-/* Auth Card */
-.auth-card {
-  background: #1a1a1a;
+.auth-card,
+.art-form,
+.contact-card,
+.about-container,
+.profile-content,
+.dashboard-container {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.auth-card,
+.art-form {
+  max-width: 430px;
+  padding: 2rem;
   width: 100%;
-  max-width: 360px;
-  padding: 28px;
-  border-radius: 18px;
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
-  border-top: 3px solid #ffd700;
-  animation: fadeIn 0.8s ease forwards;
 }
 
-/* Title */
-.auth-title {
-  text-align: center;
-  font-size: 26px;
-  font-weight: 700;
-  color: #ffd700;
-  margin-bottom: 22px;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+.auth-title,
+.page-title,
+.contact-title {
+  color: var(--ink);
+  font-size: clamp(1.7rem, 4vw, 2.35rem);
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
-/* Input group */
-.input-group {
-  margin-bottom: 16px;
+.auth-form,
+.contact-form {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+}
+
+.input-group,
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 0;
   position: relative;
 }
 
-.input-group label {
-  color: #ccc;
-  font-size: 14px;
-  margin-bottom: 6px;
+.input-group label,
+.form-label {
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 800;
 }
 
-/* ✅ Unified curved inputs for all fields */
-.input-group input[type="text"],
-.input-group input[type="email"],
-.input-group input[type="password"],
-.input-group select {
+.input-group input,
+.input-group select,
+.contact-form input,
+.contact-form textarea,
+.art-form input[type="text"],
+.art-form input[type="number"],
+.art-form textarea,
+.quantity-input input {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  outline: 0;
+  padding: 0.8rem 0.9rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
   width: 100%;
-  padding: 11px 40px 11px 11px;
-  border-radius: 25px; /* more curve */
-  border: 1px solid #333;
-  background: #0d0d0d;
-  color: #fff;
-  font-size: 14px;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
 }
 
 .input-group input:focus,
-.input-group select:focus {
-  border-color: #ffd700;
-  outline: none;
-  box-shadow: 0 0 6px rgba(255, 215, 0, 0.3);
+.input-group select:focus,
+.contact-form input:focus,
+.contact-form textarea:focus,
+.art-form input:focus,
+.art-form textarea:focus,
+.quantity-input input:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 4px rgba(47, 111, 115, 0.13);
 }
 
-/* ✅ Password Eye Icon Inside Input */
+.password-wrapper {
+  position: relative;
+}
+
 .password-toggle {
+  background: transparent;
+  border: 0;
+  color: var(--accent-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0;
   position: absolute;
-  right: 12px;
-  top: 38px;
-  cursor: pointer;
-  color: #ffd700;
-  font-size: 18px;
-  transition: color 0.3s;
+  right: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
 }
 
-.password-toggle:hover {
-  color: #cdaa00;
+.password-wrapper input {
+  padding-right: 4.5rem;
 }
 
-/* ✅ Dropdown (Select) */
-.input-group select {
-  appearance: none;
-  background: #0d0d0d;
-  color: red;
-  cursor: pointer;
-}
-
-/* Button */
-.gold-btn {
+.gold-btn,
+.submit-btn {
+  min-height: 46px;
+  padding: 0.8rem 1rem;
   width: 100%;
-  padding: 11px;
-  background: linear-gradient(135deg, #ffd700, #cdaa00);
-  color: #0d0d0d;
-  border: none;
-  border-radius: 25px; /* match input curve */
+}
+
+.auth-card p,
+.auth-link {
+  color: var(--ink-soft);
+}
+
+.auth-link {
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+
+.error-message,
+.submit-error {
+  color: #a33d32;
+  font-size: 0.86rem;
   font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
-  margin-top: 8px;
 }
 
-.gold-btn:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
-}
-
-/* Footer text */
-.auth-card p {
-  text-align: center;
-  margin-top: 12px;
-  font-size: 14px;
-  color: #bbb;
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.error-field,
+.contact-form input.error,
+.contact-form textarea.error {
+  border-color: #a33d32 !important;
 }

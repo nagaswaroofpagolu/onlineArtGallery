@@ -13,10 +13,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
+    <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          🎨 Online Art Gallery
+          Online Art Gallery
         </Link>
 
         <button
@@ -51,7 +51,7 @@ const Navbar = () => {
             {user?.isArtist && (
               <li className="nav-item">
                 <NavLink to="/artist-dashboard/add" className="nav-link">
-                  Add-Artworks
+                  Add Artwork
                 </NavLink>
               </li>
             )}

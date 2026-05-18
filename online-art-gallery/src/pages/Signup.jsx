@@ -20,53 +20,39 @@ export default function Signup() {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
-    if (!formData.email.includes('@')) newErrors.email = "Invalid email format";
+    if (!formData.email.includes("@")) newErrors.email = "Invalid email format";
     if (formData.password.length < 6) newErrors.password = "Password must be at least 6 characters";
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors({}); // Clear previous errors
-    
+    setErrors({});
+
     try {
-      if (!validateForm()) {
-        return;
-      }
+      if (!validateForm()) return;
 
-      // Clear any existing errors
-      setErrors({});
-
-      console.log('Sending signup data:', formData);
-      const signupData = {
+      await signup({
         ...formData,
-        role: formData.role.toUpperCase()
-      };
-      console.log('Processed signup data:', signupData);
-
-      await signup(signupData);
+        role: formData.role.toUpperCase(),
+      });
     } catch (err) {
-      console.error('Signup error:', err);
-      const errorMessage = err.message || 'Registration failed';
-      
-      // Map error messages to form fields
-      if (errorMessage.toLowerCase().includes('email already in use') || 
-          errorMessage.toLowerCase().includes('email exists')) {
-        setErrors({ email: 'This email is already registered' });
-      } else if (errorMessage.toLowerCase().includes('password')) {
+      const errorMessage = err.message || "Registration failed";
+
+      if (errorMessage.toLowerCase().includes("email already in use") || errorMessage.toLowerCase().includes("email exists")) {
+        setErrors({ email: "This email is already registered" });
+      } else if (errorMessage.toLowerCase().includes("password")) {
         setErrors({ password: errorMessage });
-      } else if (errorMessage.toLowerCase().includes('email')) {
+      } else if (errorMessage.toLowerCase().includes("email")) {
         setErrors({ email: errorMessage });
-      } else if (errorMessage.toLowerCase().includes('name')) {
+      } else if (errorMessage.toLowerCase().includes("name")) {
         setErrors({ name: errorMessage });
-      } else if (errorMessage.toLowerCase().includes('role')) {
+      } else if (errorMessage.toLowerCase().includes("role")) {
         setErrors({ role: errorMessage });
       } else {
-        setErrors({ 
-          submit: errorMessage.replace('Registration failed: ', '')
-        });
+        setErrors({ submit: errorMessage.replace("Registration failed: ", "") });
       }
     }
   };
@@ -76,9 +62,8 @@ export default function Signup() {
       <div className="auth-card">
         <h2 className="auth-title">Create Account</h2>
         <form onSubmit={handleSubmit} className="auth-form">
-          {errors.submit && (
-            <div className="submit-error">{errors.submit}</div>
-          )}
+          {errors.submit && <div className="submit-error">{errors.submit}</div>}
+
           <div className="input-group">
             <label htmlFor="name">Full Name</label>
             <input
@@ -86,12 +71,10 @@ export default function Signup() {
               id="name"
               placeholder="Enter your full name"
               required
-              className={errors.name ? 'error-field' : ''}
+              className={errors.name ? "error-field" : ""}
               onChange={(e) => {
                 setFormData({ ...formData, name: e.target.value });
-                if (errors.name) {
-                  setErrors({ ...errors, name: '' });
-                }
+                if (errors.name) setErrors({ ...errors, name: "" });
               }}
             />
             {errors.name && <div className="error-message">{errors.name}</div>}
@@ -104,12 +87,10 @@ export default function Signup() {
               id="email"
               placeholder="Enter your email"
               required
-              className={errors.email ? 'error-field' : ''}
+              className={errors.email ? "error-field" : ""}
               onChange={(e) => {
                 setFormData({ ...formData, email: e.target.value });
-                if (errors.email) {
-                  setErrors({ ...errors, email: '' });
-                }
+                if (errors.email) setErrors({ ...errors, email: "" });
               }}
             />
             {errors.email && <div className="error-message">{errors.email}</div>}
@@ -123,21 +104,21 @@ export default function Signup() {
                 id="password"
                 placeholder="Create a password"
                 required
-                className={errors.password ? 'error-field' : ''}
+                className={errors.password ? "error-field" : ""}
                 onChange={(e) => {
                   setFormData({ ...formData, password: e.target.value });
-                  if (errors.password) {
-                    setErrors({ ...errors, password: '' });
-                  }
+                  if (errors.password) setErrors({ ...errors, password: "" });
                 }}
               />
-              <span
+              <button
                 className="password-toggle"
+                type="button"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? "👁️‍🗨️" : "👁️"}
-              </span>
+                {showPassword ? "Hide" : "Show"}
+              </button>
             </div>
+            {errors.password && <div className="error-message">{errors.password}</div>}
           </div>
 
           <div className="input-group">
@@ -145,12 +126,8 @@ export default function Signup() {
             <select
               id="role"
               value={formData.role}
-              onChange={(e) => {
-                const newRole = e.target.value;
-                console.log('Role selected:', newRole); // Debug log
-                setFormData({ ...formData, role: newRole.toUpperCase() });
-              }}
-              className={errors.role ? 'error-field' : ''}
+              onChange={(e) => setFormData({ ...formData, role: e.target.value.toUpperCase() })}
+              className={errors.role ? "error-field" : ""}
             >
               <option value={ROLES.CUSTOMER}>Art Buyer (Customer)</option>
               <option value={ROLES.ARTIST}>Artist (Sell Artwork)</option>
@@ -158,29 +135,9 @@ export default function Signup() {
             {errors.role && <div className="error-message">{errors.role}</div>}
           </div>
 
-          {formData.role === 'admin' && (
-            <div className="input-group">
-              <label htmlFor="adminCode">Admin Registration Code</label>
-              <input
-                type="password"
-                id="adminCode"
-                placeholder="Enter admin registration code"
-                required
-                className={errors.adminCode ? 'error-field' : ''}
-                onChange={(e) => {
-                  setFormData({ ...formData, adminCode: e.target.value });
-                  if (errors.adminCode) {
-                    setErrors({ ...errors, adminCode: '' });
-                  }
-                }}
-              />
-              {errors.adminCode && (
-                <div className="error-message">{errors.adminCode}</div>
-              )}
-            </div>
-          )}
-
-          <button type="submit" className="gold-btn">Sign Up</button>
+          <button type="submit" className="gold-btn">
+            Sign Up
+          </button>
         </form>
 
         <p style={{ textAlign: "center", marginTop: "1rem" }}>

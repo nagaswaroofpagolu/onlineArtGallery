@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <p className="mb-1">© {new Date().getFullYear()} Online Art Gallery. All Rights Reserved.</p>
+        <p className="mb-1">Copyright {new Date().getFullYear()} Online Art Gallery. All Rights Reserved.</p>
         <p>
           <a href="/terms" className="mx-2">
             Terms & Conditions

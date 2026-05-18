@@ -1,26 +1,53 @@
 import { Link } from "react-router-dom";
 import "../styles/home.css";
 
-
 export default function Home() {
   return (
     <div className="home-container">
-      {/* ===== Hero Section ===== */}
       <section className="hero-section">
-        <div className="hero-content">
-          <h1 className="hero-title">Welcome to the Online Art Gallery</h1>
+        <div className="hero-copy">
+          <p className="eyebrow">Curated originals, open every day</p>
+          <h1 className="hero-title">Online Art Gallery</h1>
           <p className="hero-text">
-            Discover, showcase, and celebrate creativity. Artists can upload their masterpieces,
-            while art lovers explore, collect, and connect with art from around the world.
+            Discover expressive paintings, collect work from emerging artists, and give creators
+            a polished space to present new pieces.
           </p>
-          <Link to="/artworks" className="hero-btn">🎨 Explore Gallery</Link>
+          <div className="hero-actions">
+            <Link to="/artworks" className="hero-btn primary">
+              Explore Gallery
+            </Link>
+            <Link to="/signup" className="hero-btn secondary">
+              Join as Artist
+            </Link>
+          </div>
         </div>
 
-        <div className="hero-image">
+        <div className="hero-gallery" aria-label="Featured artwork preview">
           <img
-            src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=800&q=80"
-            alt="Art Display"
+            className="hero-img hero-img-large"
+            src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=900&q=80"
+            alt="Colorful contemporary painting in a gallery"
           />
+          <img
+            className="hero-img hero-img-small"
+            src="https://images.unsplash.com/photo-1545987796-200677ee1011?auto=format&fit=crop&w=520&q=80"
+            alt="Visitors viewing framed artwork"
+          />
+        </div>
+      </section>
+
+      <section className="home-feature-band">
+        <div>
+          <span>For collectors</span>
+          <strong>Browse by mood, artist, and price.</strong>
+        </div>
+        <div>
+          <span>For artists</span>
+          <strong>Upload, price, and manage your artworks.</strong>
+        </div>
+        <div>
+          <span>For everyone</span>
+          <strong>A calm, focused viewing experience.</strong>
         </div>
       </section>
     </div>
